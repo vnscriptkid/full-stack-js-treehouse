@@ -1,4 +1,3 @@
-"use strict"
 
 var students = [
   {
@@ -14,36 +13,54 @@ var students = [
     points: 200
   },
   {
-    name : 'linh',
+    name : 'thanh',
     track: ['python', 'security', 'react', 'nodejs'],
     achievements: 3,
     points: 700
-  }
-  
-]
+  }  
+];
 
-var html = '';
+var userName;
 
-function printStudent(student){
-  html += '<p> Name : '+student.name+'</p>';
-  html += '<p> Track : '+student.track+'</p>';
-  html += '<p> Achievements : '+student.achievements+'</p>';
-  html += '<p> Points : '+student.points+'</p>';
-  html += '<hr>'
-  document.write(html);
+function printResult(html){  
+  var outputDiv = document.querySelector('#output');
+  outputDiv.innerHTML = html;
 }
 
-function searchStudent(nameTarget, students){
+function getStudentHtml(student){
+  var report = '<p> Name : '+student.name+'</p>';
+  report += '<p> Track : '+student.track+'</p>';
+  report += '<p> Achievements : '+student.achievements+'</p>';
+  report += '<p> Points : '+student.points+'</p>';
+  report += '<hr>'
+  return report;
+}
+
+function searchStudent(nameTarget){
+  var final = '';
+  var found = false;
   for (var i = 0; i < students.length; i++){
     name = students[i].name;
     if(name === nameTarget){
-      printStudent(students[i]);
+      final += getStudentHtml(students[i]);
+      found = true;
     }   
   }
+  if (found === false)
+    final += '<p>Student not found</p>';
+  
+  printResult(final);
 }
 
-var userName = prompt('Enter name to search: ');
-searchStudent(userName, students);
+while (true){
+	userName = prompt('Enter name to search or \'quit\' to exit: ');
+	if(userName.toLowerCase() === 'quit')
+		break;
+	searchStudent(userName);
+}
+
+
+
 
 
 
