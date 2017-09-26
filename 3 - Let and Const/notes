@@ -1,0 +1,33 @@
+1 - Defining Variables in JS 
+  var message = "Hello";
+  const pi = 3.14;
+  let score = 0;
+
+2 - Creating Unchanging Variables with Const
+  Using const : We dont expect to change this guy after initializing it
+  Example: pi is a constant and will not be changed so it should be a const
+  But score is constantly updated in the program for example so we dont want to use it as const
+
+3 - Using Constants and Arrays with Objects
+  We've said earlier that we cant modify const once it is initialized
+  But when we do something like:
+  const days = ['mon', 'tue']
+  We still can change 'days' by push, pop, reassign values ...
+  Like: days['mon'] = 'Monday'
+        days.push('Wednesday')
+        days.pop()
+  Except we dont reassign totally 'days' for a new array like: days = ['Thursday','Friday'];
+  It will be fine. So what happened here? Actually we dont change 'days' const
+  'days' just keep a reference to our actual array (means 'days' points to actual object)
+  And here we changed object, we did not change 'days' which is constant
+  When we totally reassign 'days' to a new array, it causes an error because
+  we are pointing days to somewhere else
+  
+  The same concept for 'object'
+
+4 - Defining a Variable with Let
+  In a lot of cases, 'let' seems to works similar as 'var'?
+
+5 - Using Let with For Loops
+
+6 - Overview
