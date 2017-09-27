@@ -1,0 +1,13 @@
+1 - Setting Text with textContent and innerHTML
+
+2 - Changing Element Attributes
+Syntax: ele.attr = 'value'
+
+3 - Styling elements
+Syntax: ele.style.prop
+
+4 - Creating New DOM Elements
+
+5 - Appending Nodes
+
+6 - Removing Nodes
