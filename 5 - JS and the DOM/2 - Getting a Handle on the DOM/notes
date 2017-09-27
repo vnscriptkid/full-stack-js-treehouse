@@ -1,0 +1,36 @@
+1 - A simple Example
+
+  const myHeading = document.getElementById('myHeading');
+
+  myHeading.addEventListener('click', () => {
+    myHeading.style.color = 'red';
+  });
+
+2 - Selecting a Page Element By ID
+  Small app 1 : Change the color of heading to red everytime the button is clicked
+  const myHeading = document.getElementById('myHeading');
+  const myButton = document.getElementById('myButton');
+
+  myButton.addEventListener('click', () => {
+    myHeading.style.color = 'red';
+  });
+  
+  Small app 2 : Get the color from user input and set for Heading everytime button is clicked  
+  const myHeading = document.getElementById('myHeading');
+  const myButton = document.getElementById('myButton');
+  const myTextInput = document.getElementById('myTextInput');
+
+  myButton.addEventListener('click', () => {
+    myHeading.style.color = myTextInput.value;
+  });
+
+3 - Select All Elements of a particular Type
+Syntax : document.getElementsByTagName()
+Notice 's' after Element
+
+4 - Select All Elements with the same Class name
+Syntax : document.getElementsByClassName()
+
+5 - Using CSS Queries to select Page Elements
+
+6 - Learning more
