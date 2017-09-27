@@ -29,5 +29,22 @@
   In a lot of cases, 'let' seems to works similar as 'var'?
 
 5 - Using Let with For Loops
+Consider this case: 
+
+const buttons = document.getElementsByTagName('button');
+for (var i = 0; i < buttons.length; i++){
+  const button = buttons[i];
+  
+  button.addEventListener('click', function(){
+    alert('button ' + i + ' pressed!');
+  });
+}
+
+'var' keywork in this case causes unexpected result. Because 'var' keywork make i is attached to scope of its outer function
+So i is just one instance for all the loops, and it will keep the final i which 'buttons.length' in this case
+To avoid this, we use 'let' instead of 'var'
+'let' will attached different i to each loop
+
+Notice: 'const' is also cause block-scope like 'let'
 
 6 - Overview
