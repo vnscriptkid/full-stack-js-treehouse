@@ -7,7 +7,10 @@ Syntax: ele.attr = 'value'
 Syntax: ele.style.prop
 
 4 - Creating New DOM Elements
+Syntax: document.createElement('name');
 
 5 - Appending Nodes
+Syntax: ul.appendChild(li);
 
 6 - Removing Nodes
+Syntax: ul.removeChild(li);
