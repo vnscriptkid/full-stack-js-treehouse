@@ -1,0 +1,52 @@
+1 - What is an Event
+
+2 - Functions as Parameters
+Normally you will do this: 
+  function say(something){
+    console.log(something);
+  }
+  say('hello');
+
+However, that can be done by: 
+  function say(something){
+    console.log(something);
+  }
+  
+  function exe(func, arg){
+    console.log(something);
+  }
+  exe(say, 'hello');
+  
+Or even shorter with function is passed as a anonymous function:
+  function exe(func, arg){
+    console.log(something);
+  }
+  
+  exe((something) => {
+    console.log('hello');
+  }, 'hello');
+  
+So why this is useful and when to use it? Next lecture ->
+
+3 - Delaying Execution with setTimeout()
+
+setTimeout((something) => {
+  console.log(something);
+}, 3000, 'hello');
+
+4 - Listening for Events with addEventListener
+ele.addEventListener('click', () => {
+  //do something
+});
+
+5 - Event Bubbling and Delegation
+- There's a problem about using loop setting event for every 'li' element
+- If we add a more li to our list with user interaction
+- That kind of 'li' will not be attached with event 
+- How to solve? We set event for the 'ul' which is will be triggered for any 'li' in 'ul'
+- But then how we know what 'li' was clicked. Next lecture -> 
+
+6 - The Event Object
+- The function that addEventListener() takes, actually receive a event object 
+- This event object contains methods and properties that can convey information 
+- event.target returns the element on which the event happens
