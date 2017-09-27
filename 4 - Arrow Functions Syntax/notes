@@ -1,0 +1,40 @@
+1 - Basics Arrow Sytax
+  In ES5, there are 2 ways to define a function:
+  + Using function declaration:
+  const name = 'thanh';
+  function hello(){
+    console.log('hello ' + name);
+  }
+  hello()
+  
+  + Using function expression:
+  Best practice is using 'const' to store a function to avoid funcition is being reassigned
+  Actually we just assign a anonymous function (function object) to a variable
+  (Everything inside curly braces {} is a object) 
+  const name = 'thanh';
+  const bye = function() {
+    console.log('bye ' + name);
+  }
+  bye();
+  
+  In ES6, we introduce a new way of defining a function: 
+  const name = 'thanh';
+  const love = () => {
+    console.log('love' + name);
+  }
+  Syntax is different but what else?  
+  
+2 - Using arguments with Arrow Functions
+
+const square = (x) => {
+  return x * x;
+}
+
+const multiply = (x,y) => {
+  return x * y;
+}
+
+3 - Concise Arrow Function Syntax
+  We can make syntax arrow more consice in some cases:
+  const square = x => x * x;
+  const multiply = (x,y) => x * y;
