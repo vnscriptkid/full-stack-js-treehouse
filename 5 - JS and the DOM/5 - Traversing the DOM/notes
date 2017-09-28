@@ -36,5 +36,15 @@ Scenario: Similar to previous task. Add button that allow move the 'li' element 
 4 - Solution
 
 5 - Getting All Children of a Node with children
+Rather than doing something like: 
+ul.querySelectorAll('li')
+
+We can simply:
+ul.children
+
+Both return array of 'li' element
 
 6 - Getting the first and last child
+Syntax: 
+ParentNode.firstElementChild;
+ParentNode.lastElementChild;
