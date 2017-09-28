@@ -1,0 +1,52 @@
+1 - Getters vs Setters
+
+2 - Adding Content to the Page
+
+$('#addPetButton').click(function(){
+	let $petName = $('#petName');
+	let $petType = $('#petType');
+	let $petNote = $('#petNote');
+
+	let newPet = $(
+	`
+	<div><hr>
+	Pet Name : ${$petName.val()} <br>
+	Species : ${$petType.val()} <br>
+	Notes : ${$petNote.val()} <br>	
+	</div>
+	`);
+
+	$('#petBox').append(newPet);
+
+	$petName.val('');
+	$petType.val('');
+	$petNote.val('');
+});
+
+3 - Showing and Hiding Content
+$('#addPetForm').css('display', 'none').fadeIn(5000);
+
+4 - Changing Styles
+$('#addPetForm').on('click', function(){
+  $(this).toggleClass('pink');
+  console.log(this);
+});
+
+-> 'this' here refers to the element that event was attached on
+
+$('#addPetForm').on('click', () => {
+  console.log(this);
+});
+
+-> 'this' here refers to 'window' object
+The way arrow function bind 'this' keyword is different
+
+5 - Removing Content from the Page
+
+$('#magicButton').on('click', function(){	
+	$('#one').empty();
+	$('#two').remove();
+});
+You can't see both
+Though, #one still there
+#two is gone totally
