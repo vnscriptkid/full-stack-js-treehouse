@@ -1,0 +1,65 @@
+1 - Different Kinds of Objects
+  - What is Object? An object is an container for values in form of properties 
+  and functionality in form of methods
+
+2 - Object Literal Review
+  var me = {
+    name : 'thanh',
+    age : 22,
+    'is Hacker' : true
+  }
+  console.log(me['is Hacker']);
+  console.log(me.name);   
+
+3 - Adding a Method to an Object
+var dice = {  
+  roll : function() {
+    var sides = 6;
+    var randomNumber = Math.floor(Math.random() * sides) + 1;
+    console.log(randomNumber);
+  }
+}
+
+4 - Understanding 'this'
+var dice = {  
+  sides : 6,
+  roll : function() {    
+    var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+    console.log(randomNumber);
+  }
+}
+
+Why 'this'? What if 'this' does not existed?
+So, 'this' is the object, that owns the method being called
+
+5 - Return Values
+
+    var dice = {
+      sides : 6,
+      roll : function() {
+        var randomNumber = Math.floor(Math.random() * 6) + 1;
+        return randomNumber;
+      }
+    }
+
+    const view = document.getElementById('view');
+    const roll = document.getElementById('roll');
+
+    roll.addEventListener('click', function(){
+      view.textContent = dice.roll();
+    });
+
+6 - Modifying Objects with Methods
+
+    var cal = {
+      sum : 0,
+      add : function(value){
+        this.sum += value;
+      },
+      clear : function(){
+
+      },
+      equals : function(){
+
+      }
+    }
