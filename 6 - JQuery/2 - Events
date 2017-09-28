@@ -1,0 +1,31 @@
+1 - Intro to Events
+$('p').click(function(){
+  console.log('clicked');
+});
+
+2 - Callback Functions
+The function is executed later not by us, but by someone else
+
+3 - Using the on() Method
+Intuitive way:
+<button id="myBtn" onclick="console.log('clicked');">Click</button>
+
+Better way: (Separate HTML with JS)
+document.getElementById('myBtn').onclick = function(){
+  console.log('clicked');
+}
+
+or 
+
+const myBtn = document.getElementById('myBtn');
+myBtn.addEventListener('click', function(){
+  console.log('clicked');
+});
+
+jQuery way:
+$('#myBtn').on('click', function(event){
+  console.log('clicked');
+  console.log(event.target);
+});
+
+4 - Event Types
