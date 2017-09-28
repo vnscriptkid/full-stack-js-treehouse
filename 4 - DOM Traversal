@@ -1,0 +1,17 @@
+1 - Why We Traverse the DOM
+
+2 - Understanding the DOM Tree
+
+3 - parent()
+Similar to parentNode() provided by DOM
+$('.removePet').on('click', function(){
+  $(this).parent().remove();
+});
+
+4 - find(), prev(), next()
+
+5 - siblings()
+children(), closest(), map()
+
+6 - Wrap Up
+
