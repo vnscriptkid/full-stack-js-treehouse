@@ -1,0 +1,40 @@
+1 - Using parentNode to traverse Up the DOM
+Scenario: We want delete a 'li' element when user click to it
+How ? Set event for 'ul' element that in which 'li' target was contained
+Using event.target to refer to 'li' currently chosen
+Select the 'ul' by parentNode
+Using removeChild with that 'ul' for the 'li' target
+
+ul.addEventListener('click', (event) => {
+  if(event.target.tagName == 'LI'){
+    let li = event.target;
+    let ul = li.parentNode;
+    ul.removeChild(li);
+  }
+});
+
+2 - Using previousElementSibling and insertBefore
+Scenario: Adding button called 'up' for each 'li' element 
+This button allow user to move up 'li' element everytime they click to element
+If it is already the first element in the list. Notthing will happen (check if prevLi not null)
+
+How ? 
+ul.addEventListener('click', (event) => {
+  if (event.target.tagName == 'LI') {
+    if (event.target.className = 'up') {
+      let li = event.target;
+      let prevLi = li.previousElementSibling;
+      if (prevLi)
+        prevLi.insertBefore(li);            
+    }
+  }  
+});
+
+3 - Challenge - Using nextElementSibling
+Scenario: Similar to previous task. Add button that allow move the 'li' element down
+
+4 - Solution
+
+5 - Getting All Children of a Node with children
+
+6 - Getting the first and last child
