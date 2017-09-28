@@ -1,0 +1,25 @@
+1 - Why JQuery
+
+2 - Setting up JQuery
+
+3 - The JQuery Object
+
+4 - Selecting Page Elements with JQuery
+  Different types of selectors (just like CSS selectors)
+  - Element selectors
+  
+  - Descendant Selectors
+  $('p a')
+  
+  - Classes and IDs
+  $('.blog-post');
+  $('#about');
+  
+  - Attribute Selectors
+  $([name='newsletter'])
+
+5 - Filtering Matched Elements
+
+6 - Accessing and Modifying Attributes
+Change 'href' of all the a tags to 'http://bing.com'
+$('a').attr('href', 'http://bing.com');
