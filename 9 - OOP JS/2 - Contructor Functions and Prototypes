@@ -1,0 +1,68 @@
+1 - Creating Multiple Instances with Constructors
+  - Object Literal may not fit when you have to create a lot of object
+  - Especially, they have the same characteristics
+  - Avoid repeating code, keep you DRY
+  
+  function Contact(name, email){
+    // this = {}
+    this.name : name;
+    this.email : email;
+    this.sendEmail : function() {/*Do something*/} 
+    // return this;
+  }
+
+2 - Make a Constructor Challenge
+
+    function Dice(sides){
+      this.sides = sides;
+      this.roll = function(){
+        var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+        return randomNumber;
+      }
+    }
+
+    var myDice = new Dice(6);
+    var herDice = new Dice(10);
+
+3 - Solution
+
+4 - Methods and Prototypes 
+- What is the problem with previous approach?
+- Everytime we create a 'new' object like above, we also make a function object that attached to that object
+- We can check by: 
+  myDice.roll == herDice.roll
+- This approach can be memory-consuming that unecessary
+- How to fix? Just create a seperate function object through function declaration like this:
+    function rollDice(){
+      var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+      return randomNumber;
+    }
+  Then inside the constructor we just refer to this function object
+    function Dice(sides){
+      this.sides = sides;
+      this.roll = rollDice();
+    }
+  Now guess what? myDice.roll = herDice.roll
+  
+- Done? Not yet ? Another problem arises. 
+  Seems apparently we dont have no sign allow us to know rollDice is a function that belongs to Dice
+  JS solve this problem by prototype. Thus JS also known as prototypal language
+  
+  Dice.prototype.roll = function(){
+    var randomNumber = Math.floor(Math.random() * this.sides) + 1;
+    return randomNumber;
+  }
+  
+  Inside the Dice:
+  function Dice(sides){
+    this.sides = sides;    
+  }
+  
+  So what is the difference with previous approach ? 
+  The roll function is no longer resides in every instances that is created
+  It now belongs to prototype of Dice constructor
+  Thus : 'myDice.roll === herDice.roll' return 'true'
+
+5 - Playlist Project
+
+6 - Making the UI Work
