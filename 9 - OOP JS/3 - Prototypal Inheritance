@@ -1,0 +1,43 @@
+1 - Prototype Chain
+
+2 - Building the Media Object
+function Media(title, duration){
+  this.title = title;
+  this.duration = duration;
+  this.isPlaying = false;
+}
+
+Media.prototype.play = function(){
+  this.isPlaying = true;
+}
+
+Media.prototype.stop = function(){
+  this.isPlaying = false;
+}
+
+3 - Updating the Song Object
+
+function Song(title, artist, duration){
+  this.artist = artist;
+  song = this;
+  Media.call(song, title, duration);
+}
+
+Song.prototype = Object.create(Media.prototype);
+
+Song.prototype.toHTML = function(){
+  //return the UI for a song
+}
+
+4 - Building the Movie Object
+
+function Movie(title, duration, year){
+  Media.call(this, title, duration);
+  this.year = year;
+}
+
+Movie.prototype = Object.create(Media.prototype);
+
+Movie.prototype.toHTML = function(){
+  //return the UI for a movie
+}
