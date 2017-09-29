@@ -1,0 +1,17 @@
+.special {
+	background-color : pink;
+}
+
+.isPlaying {
+	border: 2px blue solid;
+}
+
+body {
+	margin: 0px auto 0px auto;
+	width: 70%;
+}
+
+h1 {
+	text-align: center;
+}
+
