@@ -1,0 +1,18 @@
+1 - Planning Our Project
+
+2 - System Events
+
+3 - Making a GET request with HTTPS
+http.get('http://nodejs.org/dist/index.json', (res) => {
+  /*Do something*/
+}
+
+4 - Getting the Response Body
+https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_http_get_options_callback
+
+5 - Parsing JSON
+JsObject = JSON.parse(String);
+
+6 - Capturing Command Line Arguments
+var cities = process.argv.slice(2);
+cities.forEach(getCityWeather);
