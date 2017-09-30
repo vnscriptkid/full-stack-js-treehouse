@@ -1,0 +1,9 @@
+1 - Overview
+
+2 - HTTP Servers
+Unlike other server that requires that require WebServer (Apache, IIS, ...) and a interpreter generating dynamic content
+NodeJS can do both in one
+
+3 - Preparing & Planning
+
+4 - Creating a Simple Server
