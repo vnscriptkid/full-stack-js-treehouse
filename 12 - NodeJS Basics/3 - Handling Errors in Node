@@ -1,0 +1,36 @@
+1 - Handling the Error Event in Node
+request.on('error', error => {console.error(`Problem with request: ${error.message}`)});
+//If your link looks not pretty bad, it will be sent and any error after that will be detected
+//This can be put outside of: const request = http.get('Link', callback);
+
+try {} catch(e){
+  console.error(e.message);
+}
+//This can catch error related to 'bad link' for example
+//Like lack of protocol 'http://' ahead of your link
+//The 'try' should wrap 'http.get()'
+
+2 - Handling Parsing Errors with 'try' and 'catch'
+// try, catch can be used to detect parsing error
+try {
+  const parsedData = JSON.parse(rawData);
+  console.log(parsedData);
+} catch (e) {
+  printError(e);
+}
+
+//We should write a function print error to avoid repeating code
+function printError(e){
+  console.error(e.message);
+}
+
+3 - Handling Status Code Errors
+200 - OK
+500 - Internal Server Error
+301 - Moved Permanently
+404 - Not found
+
+http.STATUS_CODES[res.statusCode]
+-> This will print out the what type of error corresponding to that status
+
+4 - Organizing Code with Require
