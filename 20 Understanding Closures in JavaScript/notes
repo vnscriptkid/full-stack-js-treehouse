@@ -1,0 +1,142 @@
+1 - The problems with Globals
+var count = 0;
+
+function countBirds(){
+  count += 1;
+  return count + ' birds';
+}
+
+function countDogs(){
+  count += 1;
+  return count + ' dogs';
+}
+
+In this case, both 2 functions share the same 'count' which is the variable in global
+How fix?
+var dogCounter = 0;
+var birdCounter = 0;
+
+function countBirds(){
+  birdCounter += 1;
+  return birdCounter + ' bird';
+}
+
+function countDogs(){
+  dogCounter += 1;
+  return dogCounter + ' dogs';
+}
+
+What if we have 1000 like this? Closures
+
+2 - What are Closures
+Theoretically, a private variable inside a function can't be accessed outside
+function outer(){
+  var count = 0;
+  function inner(){
+    count += 10;
+    console.log('count now is ' + count);
+  }  
+  return inner;
+}
+
+var count1 = outer();
+// outer function is called, a private scope of 'outer' is created
+// count1 now keep the function object, has not been called
+var count2 = outer();
+
+count1() //10
+count1() //20
+count2() //10
+
+3 - Fixing Our Problem
+
+Intuitive way: What problem? Code repeated
+
+    function makeBirdCounter(){
+      var count = 0;
+      function countBirds(){
+        count += 1;
+        return count + ' birds';
+      }
+      return countBirds;
+    }
+
+    function makeDogCounter(){
+      var count = 0;
+      function countDogs(){
+        count += 1;
+        return count + ' birds';
+      }
+      return countDogs;
+    }
+    
+    var dogCounter = makeDogCounter();
+    var birdCounter = makeBirdCounter();
+    
+Better way . Reduce to just one function
+    function makeCounter(name){
+      var count = 0;
+      return function(){
+        count += 1;
+        return count + ' name';
+      }
+    }
+    
+    var countDog = makeCounter('dog');   
+
+4 - Uses for Closures
+- Real-World Usages for Closures:
+-> Distributing JS Modules:
+JQuery
+Moment.js
+Underscore.js
+Express Middleware
+
+- Though middleware should have a function with 3 parameters like this:
+app.use(function(req, res, next){
+  //middleware logic
+  next();
+});
+
+- But in case 'morgan' module:
+var logger = require('morgan');
+app.use(logger('dev'));
+
+-> What's going on here? Check source code -> closures
+
+- Real Scenario:
+Assume we have a list 3 button : Button 0, Button 1, Button 2
+var buttons = document.getELementsByTagName('button');
+for (var i = 0; i < buttons.length; i++){
+  var button = buttons[i];
+  var buttonName = button.textContent;
+  button.addEventListener('click', function(){
+    console.log(buttonName);
+  });
+}
+
+Problem: buttonName here is a String and it is attached to global scope
+So after we run through 3 loops, buttonName eventually will hold name of last button in the list
+Which is button 3 in this case
+
+Fix ? Each loop, we somehow encapsulate 'buttonName' inside scope of a function
+function createHandler(name){
+  return function(name){
+    console.log(name);
+  }
+}
+...
+button.addEventListener('click', createHandler(buttonName));
+...
+// Here each time we call createHandler() and pass in a 'buttonName'
+// Also means we create a new scope and 'buttonName' inside will be different with outside
+// This call actually return a function which is the argument that we need 
+// And inside this function we still have access to 'buttonName' that belongs to createHandler function
+
+This problem also can be fixed by ES6 syntax using 'let' keyword
+
+Or : event.target
+
+
+
+
