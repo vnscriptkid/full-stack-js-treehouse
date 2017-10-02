@@ -1,0 +1,16 @@
+1 - Intro Express
+
+2 - Install Express.js
+git clone https://github.com/hdngr/treehouse-express-basics
+npm init
+npm install express --save
+In .gitignore -> Add : node_modules . We dont want git to keep track of this
+git status
+Create folder /src and app.js inside
+Use 'use strict' to avoid mistakes
+
+3 - First Express App
+var express = require('express');
+var app = express();
+
+4 - Improving Your App
