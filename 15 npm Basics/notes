@@ -1,5 +1,23 @@
 1 - What is npm?
 
 2 - Installing Packages with npm
+npm install bcrypt
+
+Start simple webserver. It might be used by many projects for testing. 
+So it makes sense to make it -g which is global
+npm install http-server -g 
+
+Create a new project with package.json included, this file contains info about project
+More importantly, it contains info about all the modules in the project
+It's important file when sharing code, you dont need to share whole folder 'node_modules/'
+
+npm init
+
+npm install mocha --save-dev
+
+Just install dependencies that need to run project, not dev-dependencies like 'mocha'
+NODE_ENV=production npm install 
 
 3 - Updating and Unistalling Packages with npm
+
+
