@@ -1,0 +1,15 @@
+1 - Overview
+'scripts' : {
+  'name' : 'command'
+},
+
+npm run name
+
+Types of Task
+- Built-in : npm run test == npm test
+- Arbitrary Task : npm run compile
+
+2 - Creating a Built-in Task
+devDependencies: mocha & uglify-js
+
+3 - Creating Your Own Arbitrary Tasks
