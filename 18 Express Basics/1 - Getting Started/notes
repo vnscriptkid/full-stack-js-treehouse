@@ -13,4 +13,18 @@ Use 'use strict' to avoid mistakes
 var express = require('express');
 var app = express();
 
+app.get('/', function(req, res){
+  res.send('hello world');
+});
+
+app.listen(3000);
+
 4 - Improving Your App
+...
+app.get('/', function(req, res){
+  res.send('<h1>This can be html also</h1>);
+});
+
+app.listen(3000, function(req, res){
+  console.log('server is running on port 3000');
+});
