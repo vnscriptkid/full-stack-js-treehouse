@@ -1,0 +1,9 @@
+1 - Setting Up the Express Static Server in Development
+var express = require('express');
+var app = express();
+
+var app.use('/static', express.static(__dirname + '/public'));
+
+2 - Add Static to the Layout Template
+
+link(rel='stylesheet', href='/static/css/bootstrap.css')
