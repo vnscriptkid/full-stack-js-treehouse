@@ -1,0 +1,39 @@
+1 - What is template rendering
+    Famous template engines:
+      Handlebars
+      EJS
+      JADE
+
+2 - What is JADE
+  - You dont have <>, and closing tag
+  - You know what element inside what element based on indentation 
+
+3 - Using JADE in Your Express App
+npm install jade --save
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/templates');
+// We need to create a folder /templates inside /src to save template files
+// __dirname is the path of folder that contains 'app.js'
+
+...
+app.get('/', function(req, res){
+  res.render('index');
+});
+...
+app.get('/blog/:title?', function(req, res){
+  var title = req.params.title
+  if(title === undefined){
+    res.send('<h2>This page is under construction</h2>');
+  } else {    
+    var post = posts[title] || {};
+    res.render('post', {post : post};
+  }
+});
+...
+Inside 'post.jade', we can refer to variable by #{post.des} or #{post.title}
+
+4 - The 'response.render' Method
+
+5 - Scaffolding Your Project's Templates
+
+6 - Scaffolding Your Project's Templates, Adding Partials
