@@ -1,0 +1,32 @@
+1 - Request and Request Object
+- Play with our debugger a little bit:
+node-inspector
+nodemon --debug src/app.js
+
+- Land a breakpoint inside any route so we can inspect req and res object
+Try something like: req.hostname, req.url, req.params...
+
+- Change code a little bit so we can use params to point to particular data
+It means user can type the url and get what they want
+
+var posts = require('./mock/posts.json');
+...
+app.get('/blog/:name', function(req, res){
+  var name = req.params.name;
+  var post = posts[name];
+  res.send(post);
+})
+
+2 - Responses adn the Response Object
+...
+app.get('/blog/:name?', function(req, res){
+  var name = req.params.name;
+  if(name === undefined){
+    res.status(503);
+    res.send('This page is under construction');
+  }else{
+    var post = posts[name];
+    res.send(post);
+  }
+});
+
