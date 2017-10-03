@@ -1,0 +1,25 @@
+1 - Adding Routes to the App
+  ...
+  var posts = require('./mock/posts.json');
+  app.get('/blog', function(req, res){
+    res.send(posts);
+  });
+  // We can even send a json content just by pass variable that refer to the json file 
+
+2 - Easily Debug Express (and other node apps)
+
+  nodemon allows server is automatically restarted after changes
+  npm install -g nodemon
+  nodemon app.js
+
+3 - Interactive Debugging and Exploratory
+  npm install -g node-inspector
+  node-debug src/app.js
+
+  Combine node-inspector with nodemon?
+  2 terminal tabs:
+  node-inspector
+  nodemon --debug src/app.js
+
+  Even we can inject 'debugger' right into our code
+  And change the command to: nodemon --debug-brk src/app.js
