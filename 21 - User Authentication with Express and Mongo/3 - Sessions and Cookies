@@ -1,0 +1,24 @@
+1 - Adding User Login
+
+2 - Tracking Visits With Sessions and Cookies
+
+3 - Working with Sessions in Express
+npm install express-session --save
+...
+var express = require('express');
+var app = express();
+var session = require('express-session');
+
+app.use(session({
+  secret : 'we need secure',
+  resave : true,
+  saveUninitialized : false
+}));
+
+4 - Adding Login Routes
+
+5 - Creating a Login Form with Pug
+
+6 - Authenticating the Username and Password
+
+7 - Creating the Profile Route and Page
